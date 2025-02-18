@@ -9,6 +9,15 @@ import stripes from '../../assets/images/stripes.png'
 // import Stripes from '../../assets/images/stripes.svg'
 // import { styled } from 'nativewind'
 // const StyledStripes = styled(Stripes)
+import { makeRedirectUri, useAuthRequest } from 'expo-auth-session'
+import { useEffect } from 'react'
+
+const discovery = {
+  authorization: 'https://github.com/login/oauth/authorize',
+  tokenEndpoint: 'https://gitbus.com/login/oauth/access_token',
+  revocationEndpoint: 'https://github.com/settings/connections/applications/Ov23li3TQ7wunAKlQ2ll'
+};
+
 
 export default function App() {
 
@@ -17,6 +26,25 @@ export default function App() {
     Roboto_700Bold,
     // Baijamjuree_700Bold
   })
+
+  const [request, response, signInWithGithub ] = useAuthRequest(
+    {
+      clientId: 'Ov23li3TQ7wunAKlQ2ll',
+      scopes: ['identity'],
+      redirectUri: makeRedirectUri({
+        scheme: 'nlwspacetime'
+      }),
+    },
+    discovery,
+  )
+  useEffect(() => {
+    if (response?.type === 'success') {
+      const { code } = response.params;
+      console.log('code', code)
+    }
+  }, [response])
+
+
 
   if (!hasLoadedFonts) {
     return null
@@ -51,6 +79,7 @@ export default function App() {
         <TouchableOpacity
           activeOpacity={0.7}
           className="rounded-full bg-green-500 px-5 py-2"
+          onPress={() => signInWithGithub}
         >
           <Text className="font-alt text-sm uppercase text-black">
             Cadastrar lembrança

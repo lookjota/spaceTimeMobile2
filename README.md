@@ -151,3 +151,12 @@ declare module "*.svg" {
   const content: React.FC<SvgProps>;
   export default content;
 }
+
+### install Dependencies expo-auth-session expo-crypto
+
+$ npx expo install expo-auth-session expo-crypto
+
+- AuthSession is the easiest way to add web browser based authentication
+(for example, browser based OAuth flows) to your app, built on top of Webrowser and Crypto
+
+
