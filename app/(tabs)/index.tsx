@@ -12,6 +12,10 @@ import stripes from '../../assets/images/stripes.png'
 import { makeRedirectUri, useAuthRequest } from 'expo-auth-session'
 import { useEffect } from 'react'
 
+import { api } from '../lib/api'
+import { SecureStore } from 'expo-secure-store'
+import { router } from 'expo-router'
+
 const discovery = {
   authorization: 'https://github.com/login/oauth/authorize',
   tokenEndpoint: 'https://gitbus.com/login/oauth/access_token',
@@ -37,10 +41,33 @@ export default function App() {
     },
     discovery,
   )
+
+  async function handleGithubOAuthCode(code: string) {
+    const response = await api.post('/register', {
+      code,
+    })
+    const { token } = response.data
+
+    await SecureStore.setItemAsync('token', token)
+
+    router.push('/memories')
+    
+
+  }
+
+
   useEffect(() => {
+    // console.log(makeRedirectUri({
+    //   scheme: 'nlwspacetime'})
+    // )
+
+  
+
     if (response?.type === 'success') {
-      const { code } = response.params;
-      console.log('code', code)
+      const { code } = response.params
+
+    
+      // console.log('code', code)
     }
   }, [response])
 

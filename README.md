@@ -160,3 +160,29 @@ $ npx expo install expo-auth-session expo-crypto
 (for example, browser based OAuth flows) to your app, built on top of Webrowser and Crypto
 
 
+### install dependencies axios
+
+$ npm i axios
+
+### install dependencies 
+$ npx expo install expo-secure-store
+
+
+- salvar informacoes no mobile
+- biblioteca para trabalhar com storage de informacoes mais sensiveis
+
+- caso va publicar o app
+- precisa fazer uma configuracao seguindo a documentacao
+@https://docs.expo.dev/versions/latest/sdk/securestore/
+
+> exempling encryption prompt
+
+
+### dependencies install expo router
+
+$ npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar
+
+- 
+
+
+
