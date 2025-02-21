@@ -4,17 +4,21 @@ import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/
 // import { Baijamjuree_700Bold } from '@expo-google-fonts/bai-jamjuree'
 
 import blurBg from '../../assets/images/bg-blur.png'
-import NLWlogo from '../../assets/images/nlw-spacetime-logo.png'
+import NLWLogo from '../../assets/images/nlw-spacetime-logo.png'
 import stripes from '../../assets/images/stripes.png'
 // import Stripes from '../../assets/images/stripes.svg'
 // import { styled } from 'nativewind'
-// const StyledStripes = styled(Stripes)
+
 import { makeRedirectUri, useAuthRequest } from 'expo-auth-session'
 import { useEffect } from 'react'
+
+// import { styled } from 'nativewind'
 
 import { api } from '../lib/api'
 import { SecureStore } from 'expo-secure-store'
 import { router } from 'expo-router'
+
+// const StyledStripes = styled(Stripes)
 
 const discovery = {
   authorization: 'https://github.com/login/oauth/authorize',
@@ -91,7 +95,7 @@ export default function App() {
       {/* <Stripes/> */}
       <View className="flex-1 items-center justify-center gap-6">
           <Image
-            source={NLWlogo}
+            source={NLWLogo}
           />
         <View className="space-y-2">
           <Text className="text-center font-title text-2xl leading-tight text-gray-50">
