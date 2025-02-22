@@ -55,6 +55,7 @@ export default function Layout() {
       {/* <StyledStripes className="absolute left-2 " /> */}
 
       <Stack.Screen name="index" redirect={isUserAuthenticated} />
+      <Stack.Screen name="new" />
       <Stack.Screen name="memories"/>
 
       
