@@ -184,5 +184,36 @@ $ npx expo install expo-router react-native-safe-area-context react-native-scree
 
 - 
 
+## hooks 
 
 
+### Conceito UseState
+
+const [isUserAuthenticated, setIsUserAuthenticate] = useState
+
+- todo o useState ele retorna um array, um vetor com 2 posicoes
+
+1- posicao eh o valor daquele state em si, 
+(ou seja o valor da variavel)
+
+2- posicao eh a posicao pra eu atualizar o valor da variavel
+
+- entao pq temos uma funcao pq eu nao vou la e mudo 
+- mais isso nao ira refletir na interface
+- o react precisa saber quando q eu troco o valor do estado
+- pq ai ele vai criar a interface
+
+- A funcao eh uma forma de avisar o react q eu to fazer uma alteracao no estato
+
+### conceito UseEffect
+
+$ useEffect(() => {}, [])
+
+- ele serve pra gente disparar uma funcao,
+sempre que o valor de uma variavel mudar 
+
+- nesse caso um dos hacker q temos aqui no react eh
+se eu uso useEffect e nao passo pra ele aqui no array, nenhuma variavel
+e ele vai executar esse codigo dessa funcao apenas uma unica vez no comeco daquele componente
+
+- 
