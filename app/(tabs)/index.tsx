@@ -1,24 +1,20 @@
-import { ImageBackground, Text, TouchableOpacity, View, Image, StatusBar } from 'react-native'
+import { Text, TouchableOpacity, View, Image } from 'react-native'
 
-import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto'
+
 // import { Baijamjuree_700Bold } from '@expo-google-fonts/bai-jamjuree'
 
 import blurBg from '../../assets/images/bg-blur.png'
 import NLWLogo from '../../assets/images/nlw-spacetime-logo.png'
 import stripes from '../../assets/images/stripes.png'
-// import Stripes from '../../assets/images/stripes.svg'
-// import { styled } from 'nativewind'
 
 import { makeRedirectUri, useAuthRequest } from 'expo-auth-session'
 import { useEffect } from 'react'
 
-// import { styled } from 'nativewind'
 
 import { api } from '../lib/api'
-import { SecureStore } from 'expo-secure-store'
+import * as SecureStore from 'expo-secure-store'
 import { router } from 'expo-router'
 
-// const StyledStripes = styled(Stripes)
 
 const discovery = {
   authorization: 'https://github.com/login/oauth/authorize',
@@ -29,11 +25,7 @@ const discovery = {
 
 export default function App() {
 
-  const [hasLoadedFonts] = useFonts({
-    Roboto_400Regular,
-    Roboto_700Bold,
-    // Baijamjuree_700Bold
-  })
+
 
   const [request, response, signInWithGithub ] = useAuthRequest(
     {
@@ -61,33 +53,16 @@ export default function App() {
 
 
   useEffect(() => {
-    // console.log(makeRedirectUri({
-    //   scheme: 'nlwspacetime'})
-    // )
-
-  
-
     if (response?.type === 'success') {
       const { code } = response.params
-
-    
-      // console.log('code', code)
     }
   }, [response])
 
 
 
-  if (!hasLoadedFonts) {
-    return null
-  }
-
 
   return (
-    <ImageBackground 
-      source={blurBg} 
-      className="relative flex-1 items-center bg-gray-900 px-8 py-10"
-      // imageStyle={{ position: 'absolute', left`: '-100%'}}
-    >
+    <View className=" flex-1 items-center = px-8 py-10">
       <Image 
         source={stripes}
         className="absolute left-2"
@@ -121,7 +96,6 @@ export default function App() {
       <Text className="text-center font-body text-sm leading-relaxed text-gray-200">
         Feito com 💜 no NLW da Rocketseat
       </Text>
-
-    </ImageBackground>
+    </View>
   )
 }
