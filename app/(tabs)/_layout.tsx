@@ -54,7 +54,7 @@ export default function Layout() {
       {/* <Slot /> */}
       {/* <StyledStripes className="absolute left-2 " /> */}
 
-      <Stack.Screen name="index" redirect={isUserAuthenticated} />
+      <Stack.Screen name="index" redirect={isUserAuthenticated ?? null} />
       <Stack.Screen name="new" />
       <Stack.Screen name="memories"/>
 
