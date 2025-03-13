@@ -17,7 +17,7 @@ import * as SecureStore from 'expo-secure-store'
 
 export default function Layout() {
 
-  const [isUserAuthenticated, setIsUserAuthenticate] = useState<null | boolean>(
+  const [isUserAuthenticated, setIsUserAuthenticate] = useState<undefined | boolean>(
     null,
   )
 
