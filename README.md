@@ -216,4 +216,9 @@ sempre que o valor de uma variavel mudar
 se eu uso useEffect e nao passo pra ele aqui no array, nenhuma variavel
 e ele vai executar esse codigo dessa funcao apenas uma unica vez no comeco daquele componente
 
-- 
+### install dependencies expo image picker
+
+$ npx expo install expo-image-picker
+
+
+
