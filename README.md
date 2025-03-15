@@ -221,4 +221,8 @@ e ele vai executar esse codigo dessa funcao apenas uma unica vez no comeco daque
 $ npx expo install expo-image-picker
 
 
+## install dependencies para manipular data npm i dayjs
+
+$ npm i dayjs
+
 

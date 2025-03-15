@@ -3,7 +3,7 @@ import { Button, Image, ScrollView, Switch, Text, TextInput, TouchableOpacity, V
 import Icon from '@expo/vector-icons/Feather'
 
 import NLWLogo from '../../assets/images/nlw-spacetime-logo.png'
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useState } from "react";
 import * as ImagePicker from 'expo-image-picker'
@@ -13,6 +13,7 @@ import { api } from "../lib/api";
 export default function NewMemory() {
 
   const { bottom, top } = useSafeAreaInsets ()
+  const router = useRouter()
 
   const [preview, setPreview] = useState<string | null>(null)
    
@@ -58,6 +59,7 @@ export default function NewMemory() {
       content,
       isPublic,    
     })
+    router.push('/memories')
   }
 
   return (
@@ -132,4 +134,4 @@ export default function NewMemory() {
       </View>
     </ScrollView>
   )
-}1
+}
